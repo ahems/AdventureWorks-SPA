@@ -1,0 +1,82 @@
+@page "/saleslt-sales-order-headers"
+
+<PageTitle>SalesltSalesOrderHeaders</PageTitle>
+<RadzenStack>
+    <RadzenRow AlignItems="AlignItems.Center">
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenText Text="SalesltSalesOrderHeaders" TextStyle="TextStyle.H3" TagName="TagName.H1" style="margin: 0" />
+        </RadzenColumn>
+        <RadzenColumn Size="12" SizeMD="6">
+            <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" JustifyContent="JustifyContent.End" Gap="0.5rem">
+                <RadzenSplitButton Icon="get_app" Text="Export" Click="@ExportClick" Variant="Variant.Flat" Shade="Shade.Lighter">
+                    <RadzenSplitButtonItem Text="Excel" Value="xlsx" />
+                    <RadzenSplitButtonItem Text="CSV" Value="csv" />
+                </RadzenSplitButton>
+                <RadzenButton Icon="add_circle_outline" Text="Add" Click="@AddButtonClick" Variant="Variant.Flat" />
+            </RadzenStack>
+        </RadzenColumn>
+    </RadzenRow>
+    <RadzenRow>
+      <RadzenColumn SizeMD=12>
+        <RadzenDataGrid @ref="grid0" ColumnWidth="200px"   AllowFiltering="true" FilterMode="FilterMode.Advanced" AllowPaging="true" AllowSorting="true" ShowPagingSummary="true" PageSizeOptions=@(new int[]{5, 10, 20, 30})
+            Data="@(salesltSalesOrderHeaders)" LoadData="@Grid0LoadData" Count="@count" TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" RowSelect="@EditRow">
+            <Columns>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="SalesOrderId" Title="Sales Order Id">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="RevisionNumber" Title="Revision Number">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="OrderDate" Title="Order Date">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="DueDate" Title="Due Date">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="ShipDate" Title="Ship Date">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="Status" Title="Status">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="OnlineOrderFlag" Title="Online Order Flag">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="SalesOrderNumber" Title="Sales Order Number">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="PurchaseOrderNumber" Title="Purchase Order Number">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="AccountNumber" Title="Account Number">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="Customer.Title" Title="Customer">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="Address1.AddressLine1" Title="Address1">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="Address.AddressLine1" Title="Address">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="ShipMethod" Title="Ship Method">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="CreditCardApprovalCode" Title="Credit Card Approval Code">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="SubTotal" Title="Sub Total">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="TaxAmt" Title="Tax Amt">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="Freight" Title="Freight">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="TotalDue" Title="Total Due">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="Comment" Title="Comment">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="Rowguid" Title="Rowguid">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Property="ModifiedDate" Title="Modified Date">
+                </RadzenDataGridColumn>
+                <RadzenDataGridColumn TItem="AdventureWorks.Server.Models.adventureworks.SalesltSalesorderheader" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+                    <Template Context="salesltSalesorderheader">
+
+                        <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="delete" Size="ButtonSize.Medium"
+                            Shade="Shade.Lighter" Variant="Variant.Flat"
+                            Click=@(args => GridDeleteButtonClick(args, salesltSalesorderheader)) @onclick:stopPropagation="true" />
+                    </Template>
+                </RadzenDataGridColumn>
+            </Columns>
+
+        </RadzenDataGrid>
+
+    </RadzenColumn>
+  </RadzenRow>
+</RadzenStack>
