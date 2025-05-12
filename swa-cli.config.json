@@ -2,8 +2,9 @@
   "$schema": "https://aka.ms/azure/static-web-apps-cli/schema",
   "configurations": {
     "adventure-works": {
-      "appLocation": ".",
-      "outputLocation": "wwwroot"
+      "appLocation": "Server",
+      "outputLocation": "wwwroot",
+      "appBuildCommand": "dotnet build"
     }
   }
 }
