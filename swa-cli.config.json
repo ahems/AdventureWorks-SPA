@@ -3,8 +3,8 @@
   "configurations": {
     "adventure-works": {
       "appLocation": "Server",
-      "outputLocation": "wwwroot",
-      "appBuildCommand": "dotnet build"
+      "outputLocation": "build/wwwroot",
+      "appBuildCommand": "dotnet publish -c Release -o build"
     }
   }
 }
